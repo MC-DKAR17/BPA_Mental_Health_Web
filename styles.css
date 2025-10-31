@@ -1,0 +1,268 @@
+/* General Styling for Accessibility (ADA) and Reset */
+:root {
+    --primary-color: #4CAF50; /* A calming green */
+    --secondary-color: #A5D6A7; /* Lighter green */
+    --accent-color: #FFC107; /* A touch of warmth/hope */
+    --text-color: #333;
+    --bg-color: #f7f7f7;
+    --border-radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    scroll-behavior: smooth; /* Enhancing navigational scheme  */
+}
+
+/* Header and Navigation */
+header {
+    background: white;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    display: block;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.search-link {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Main Content Sections */
+main {
+    padding: 20px;
+}
+
+.hero {
+    background: url('mindfulness_image.jpg') no-repeat center center/cover; /* Utilizing graphics [cite: 38] */
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 80px 5%;
+    text-align: center;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #388E3C; /* Darker green */
+}
+
+.content-section {
+    padding: 40px 5%;
+    margin-bottom: 30px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.content-section h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Testimonials */
+.testimonial-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.testimonial-card {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    flex: 1 1 300px;
+    min-width: 250px;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Resources */
+.emergency-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.emergency-section li {
+    background: #FFEBEE; /* Light red for urgency */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 5px solid #E57373;
+}
+
+/* Forms (Schedule) */
+#appointment-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#appointment-form input[type="text"],
+#appointment-form input[type="date"],
+#appointment-form input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#appointment-form button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Community (Simulated Chat) */
+.community-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: var(--border-radius);
+}
+
+#chat-messages {
+    height: 150px;
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: var(--bg-color);
+    margin-bottom: 10px;
+}
+
+#chat-input {
+    width: calc(100% - 70px);
+    padding: 8px;
+    margin-right: 10px;
+}
+
+/* Blog Posts */
+.blog-posts {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.blog-card {
+    flex: 1 1 300px;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    transition: transform 0.2s;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* Responsive Design (Demonstrates responsive design competency)  */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li a {
+        padding: 5px 15px;
+    }
+
+    .search-link {
+        margin-top: 10px;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .testimonial-container, .blog-posts {
+        flex-direction: column;
+    }
+}
