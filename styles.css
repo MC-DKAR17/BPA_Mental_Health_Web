@@ -1,13 +1,31 @@
 /* General Styling for Accessibility (ADA) and Reset */
 :root {
-    /* Muted Blue for Calmness and Trust */
-    --primary-color: #5B92E5; /* Original: #4CAF50 (Green) */
+    /* Light Mode Variables (Default) */
+    --primary-color: #5B92E5; /* Muted Blue for Calmness and Trust */
     --secondary-color: #C1D9F7; /* Lighter/Softer Blue */
-    --accent-color: #FFB3A7; /* Soft Coral/Peach for gentle accent (Original: #FFC107 - Bright Yellow) */
+    --accent-color: #FFB3A7; /* Soft Coral/Peach for gentle accent */
     --text-color: #303030; /* Darker text for better contrast */
     --bg-color: #fcfcfc; /* Near white background */
     --border-color: #e0e0e0; /* Light gray border */
+    --card-bg-color: white; /* Card background in light mode */
+    --footer-bg-color: #444; /* Dark gray footer */
+    --crisis-bg-color: #FFF3E0; /* Lightest yellow/orange for crisis box */
+    --crisis-border-color: #FF9800; /* Amber for notice */
     --border-radius: 8px;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --primary-color: #92B4FF; /* Lighter, contrasting blue */
+    --secondary-color: #364966; /* Darker blue secondary */
+    --accent-color: #E09385; /* Soft coral accent */
+    --text-color: #f0f0f0; /* Light text */
+    --bg-color: #121212; /* Very dark background */
+    --border-color: #333333; /* Darker border */
+    --card-bg-color: #1e1e1e; /* Slightly lighter dark background for cards */
+    --footer-bg-color: #000000;
+    --crisis-bg-color: #331f00; /* Darker background for crisis box */
+    --crisis-border-color: #FF9800;
 }
 
 * {
@@ -22,19 +40,21 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
     scroll-behavior: smooth;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for dark mode */
 }
 
 /* Header and Navigation */
 header {
-    background: white;
+    background: var(--card-bg-color);
     padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .logo {
@@ -61,7 +81,6 @@ nav ul li a:hover {
 }
 
 .search-link {
-    /* Using the soft accent color */
     background-color: var(--accent-color);
     color: var(--text-color);
     padding: 8px 15px;
@@ -71,7 +90,24 @@ nav ul li a:hover {
     transition: background-color 0.3s;
 }
 .search-link:hover {
-    background-color: #e59c90;
+    background-color: #E09385;
+}
+
+/* Theme Toggle Button Styling */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.2em;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-left: 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--border-color);
 }
 
 /* Main Content Sections */
@@ -80,13 +116,13 @@ main {
 }
 
 .hero {
-    /* Using a solid color or a very subtle background pattern/image */
     background-color: var(--primary-color);
     color: white;
     padding: 80px 5%;
     text-align: center;
     border-radius: var(--border-radius);
     margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hero h1 {
@@ -96,7 +132,7 @@ main {
 
 .cta-button {
     display: inline-block;
-    background-color: var(--accent-color); /* Soft coral CTA */
+    background-color: var(--accent-color);
     color: var(--text-color);
     padding: 12px 25px;
     margin-top: 20px;
@@ -107,20 +143,22 @@ main {
 }
 
 .cta-button:hover {
-    background-color: #E09385; /* Slightly darker coral */
+    background-color: #E09385;
 }
 
 .content-section {
     padding: 40px 5%;
     margin-bottom: 30px;
-    background: white;
+    background: var(--card-bg-color);
     border-radius: var(--border-radius);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s;
 }
 
 .content-section h2 {
     color: var(--primary-color);
-    border-bottom: 2px solid var(--border-color); /* Muted border */
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
@@ -134,7 +172,7 @@ main {
 }
 
 .testimonial-card {
-    background-color: var(--secondary-color); /* Soft blue background */
+    background-color: var(--secondary-color);
     color: var(--text-color);
     padding: 20px;
     border-radius: var(--border-radius);
@@ -154,11 +192,11 @@ main {
 }
 
 .emergency-section li {
-    /* Keeping a warm, noticeable color for crisis info, but less harsh */
-    background: #FFF3E0; 
+    background: var(--crisis-bg-color);
     padding: 10px;
     margin-bottom: 10px;
-    border-left: 5px solid #FF9800; /* Amber for notice */
+    border-left: 5px solid var(--crisis-border-color);
+    color: var(--text-color); /* Ensure text is readable */
 }
 
 /* Forms (Schedule) */
@@ -176,6 +214,8 @@ main {
     margin-bottom: 15px;
     border: 1px solid var(--border-color);
     border-radius: 4px;
+    background-color: var(--bg-color); /* Matches background */
+    color: var(--text-color);
 }
 
 #appointment-form button {
@@ -189,7 +229,7 @@ main {
 }
 
 #appointment-form button:hover {
-    background-color: #4A7FD0; /* Slightly darker primary color */
+    background-color: #4A7FD0;
 }
 
 .hidden {
@@ -207,8 +247,9 @@ main {
     height: 150px;
     overflow-y: scroll;
     padding: 10px;
-    background-color: #f5f5f5; /* Light gray chat area */
+    background-color: var(--border-color); /* Light gray/dark gray chat area */
     margin-bottom: 10px;
+    border-radius: 4px;
 }
 
 #chat-input {
@@ -217,6 +258,8 @@ main {
     margin-right: 10px;
     border: 1px solid var(--border-color);
     border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 /* Blog Posts */
@@ -231,19 +274,20 @@ main {
     border: 1px solid var(--border-color);
     padding: 15px;
     border-radius: var(--border-radius);
+    background: var(--card-bg-color);
     transition: transform 0.2s;
 }
 
 .blog-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #444; /* Dark gray footer */
+    background-color: var(--footer-bg-color);
     color: white;
     font-size: 0.9em;
 }
@@ -257,19 +301,20 @@ footer a {
 @media (max-width: 768px) {
     header {
         flex-direction: column;
+        align-items: flex-start;
     }
 
     nav ul {
         margin-top: 10px;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
     nav ul li a {
-        padding: 5px 15px;
+        padding: 5px 15px 5px 0;
     }
 
-    .search-link {
+    .search-link, .theme-toggle {
         margin-top: 10px;
     }
 
