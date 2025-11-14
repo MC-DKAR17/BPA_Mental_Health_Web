@@ -1,10 +1,12 @@
 /* General Styling for Accessibility (ADA) and Reset */
 :root {
-    --primary-color: #4CAF50; /* A calming green */
-    --secondary-color: #A5D6A7; /* Lighter green */
-    --accent-color: #FFC107; /* A touch of warmth/hope */
-    --text-color: #333;
-    --bg-color: #f7f7f7;
+    /* Muted Blue for Calmness and Trust */
+    --primary-color: #5B92E5; /* Original: #4CAF50 (Green) */
+    --secondary-color: #C1D9F7; /* Lighter/Softer Blue */
+    --accent-color: #FFB3A7; /* Soft Coral/Peach for gentle accent (Original: #FFC107 - Bright Yellow) */
+    --text-color: #303030; /* Darker text for better contrast */
+    --bg-color: #fcfcfc; /* Near white background */
+    --border-color: #e0e0e0; /* Light gray border */
     --border-radius: 8px;
 }
 
@@ -19,7 +21,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
-    scroll-behavior: smooth; /* Enhancing navigational scheme  */
+    scroll-behavior: smooth;
 }
 
 /* Header and Navigation */
@@ -29,7 +31,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -59,12 +61,17 @@ nav ul li a:hover {
 }
 
 .search-link {
+    /* Using the soft accent color */
     background-color: var(--accent-color);
     color: var(--text-color);
     padding: 8px 15px;
     border-radius: var(--border-radius);
     text-decoration: none;
     font-weight: bold;
+    transition: background-color 0.3s;
+}
+.search-link:hover {
+    background-color: #e59c90;
 }
 
 /* Main Content Sections */
@@ -73,8 +80,8 @@ main {
 }
 
 .hero {
-    background: url('mindfulness_image.jpg') no-repeat center center/cover; /* Utilizing graphics [cite: 38] */
-    background-color: var(--secondary-color);
+    /* Using a solid color or a very subtle background pattern/image */
+    background-color: var(--primary-color);
     color: white;
     padding: 80px 5%;
     text-align: center;
@@ -89,8 +96,8 @@ main {
 
 .cta-button {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--accent-color); /* Soft coral CTA */
+    color: var(--text-color);
     padding: 12px 25px;
     margin-top: 20px;
     text-decoration: none;
@@ -100,7 +107,7 @@ main {
 }
 
 .cta-button:hover {
-    background-color: #388E3C; /* Darker green */
+    background-color: #E09385; /* Slightly darker coral */
 }
 
 .content-section {
@@ -113,7 +120,7 @@ main {
 
 .content-section h2 {
     color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--border-color); /* Muted border */
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
@@ -127,7 +134,7 @@ main {
 }
 
 .testimonial-card {
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color); /* Soft blue background */
     color: var(--text-color);
     padding: 20px;
     border-radius: var(--border-radius);
@@ -147,10 +154,11 @@ main {
 }
 
 .emergency-section li {
-    background: #FFEBEE; /* Light red for urgency */
+    /* Keeping a warm, noticeable color for crisis info, but less harsh */
+    background: #FFF3E0; 
     padding: 10px;
     margin-bottom: 10px;
-    border-left: 5px solid #E57373;
+    border-left: 5px solid #FF9800; /* Amber for notice */
 }
 
 /* Forms (Schedule) */
@@ -166,7 +174,7 @@ main {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
 }
 
@@ -177,6 +185,11 @@ main {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#appointment-form button:hover {
+    background-color: #4A7FD0; /* Slightly darker primary color */
 }
 
 .hidden {
@@ -185,7 +198,7 @@ main {
 
 /* Community (Simulated Chat) */
 .community-box {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     padding: 15px;
     border-radius: var(--border-radius);
 }
@@ -194,7 +207,7 @@ main {
     height: 150px;
     overflow-y: scroll;
     padding: 10px;
-    background-color: var(--bg-color);
+    background-color: #f5f5f5; /* Light gray chat area */
     margin-bottom: 10px;
 }
 
@@ -202,6 +215,8 @@ main {
     width: calc(100% - 70px);
     padding: 8px;
     margin-right: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
 }
 
 /* Blog Posts */
@@ -213,7 +228,7 @@ main {
 
 .blog-card {
     flex: 1 1 300px;
-    border: 1px solid #eee;
+    border: 1px solid var(--border-color);
     padding: 15px;
     border-radius: var(--border-radius);
     transition: transform 0.2s;
@@ -221,14 +236,14 @@ main {
 
 .blog-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
+    background-color: #444; /* Dark gray footer */
     color: white;
     font-size: 0.9em;
 }
@@ -238,7 +253,7 @@ footer a {
     text-decoration: none;
 }
 
-/* Responsive Design (Demonstrates responsive design competency)  */
+/* Responsive Design */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
